@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>হারানো-পাওয়া বাংলাদেশ | Lost & Found Bangladesh</title>
+<meta name="description" content="বাংলাদেশের হারানো ও পাওয়া জিনিস খুঁজে পেতে নিরাপদ Lost & Found প্ল্যাটফর্ম।">
+<meta name="keywords" content="হারানো পাওয়া বাংলাদেশ, lost and found Bangladesh, lost mobile, found document">
+<link rel="canonical" href="https://example.com/">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,"Noto Sans Bengali",sans-serif;background:#f5f8f7;color:#17212b}
+header{background:#fff;border-bottom:1px solid #e4ebe8;position:sticky;top:0;z-index:5}.nav{max-width:1100px;margin:auto;padding:14px 4%;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;color:#087443;font-size:20px}.brand small{display:block;color:#718096;font-size:10px;font-weight:500}.nav button{margin-left:7px}
+main{max-width:1100px;margin:auto;padding:28px 4%}.hero{background:linear-gradient(135deg,#eaf8f0,#fff);padding:35px;border-radius:24px}.hero h1{font-size:42px;margin:0 0 10px}.hero h1 span{color:#087443}.hero p{color:#61716c;line-height:1.7}.search{display:flex;gap:8px;margin-top:20px}.search input,.search select,.form input,.form select,.form textarea{padding:13px;border:1px solid #d7e1dc;border-radius:10px;background:#fff;outline:none}.search input{flex:1}.btn{border:0;border-radius:10px;padding:12px 17px;font-weight:800;cursor:pointer}.green{background:#087443;color:white}.light{background:#e8f5ee;color:#087443}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:25px 0}.card,.post{background:#fff;border:1px solid #e1e9e5;border-radius:17px;padding:22px}.card{cursor:pointer}.card h3{margin:7px 0}.card p,.post p,.muted{color:#718096;font-size:13px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.filters>*{flex:1;min-width:150px}.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.post{padding:0;overflow:hidden}.post .pic{height:130px;background:#eaf0ed;display:grid;place-items:center;font-size:45px}.post .body{padding:15px}.tag{font-size:11px;color:#087443;font-weight:900}.danger{color:#a33}.notice{background:#fff7df;border:1px solid #f0dfad;padding:12px;border-radius:10px;font-size:12px;line-height:1.6;margin-bottom:14px}.modal{display:none;position:fixed;inset:0;background:#0008;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.show{display:flex}.modalbox{background:#fff;border-radius:18px;padding:24px;width:min(560px,100%);max-height:92vh;overflow:auto}.modalhead{display:flex;justify-content:space-between}.form{display:grid;gap:10px}.form label{font-size:12px;font-weight:800}.form textarea{min-height:90px}.form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}footer{padding:30px 4%;text-align:center;color:#718096;font-size:12px}
+@media(max-width:700px){.hero h1{font-size:32px}.cards,.posts{grid-template-columns:1fr}.search{flex-direction:column}.form .row{grid-template-columns:1fr}.nav .extra{display:none}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<div class="brand">🇧🇩 হারানো-পাওয়া বাংলাদেশ<small>হারানো খুঁজুন • পাওয়া ফিরিয়ে দিন</small></div>
+<div><button class="btn light" onclick="openAuth()">Login / Register</button><button class="btn green" onclick="openPost('lost')">পোস্ট করুন</button></div>
+</div></header>
+<main>
+<section class="hero">
+<h1>হারিয়েছে? <span>খুঁজে নিন।</span><br>পেয়েছেন? <span>ফিরিয়ে দিন।</span></h1>
+<p>জেলা, উপজেলা ও ক্যাটাগরি দিয়ে হারানো-পাওয়া পোস্ট খুঁজুন। ব্যক্তিগত ও সংবেদনশীল তথ্য প্রকাশ না করেই যোগাযোগের ব্যবস্থা রাখুন।</p>
+<div class="search"><input id="q" placeholder="যেমন: Samsung, মানিব্যাগ, NID..."><select id="district"><option value="">সব জেলা</option><option>নোয়াখালী</option><option>ঢাকা</option><option>চট্টগ্রাম</option><option>কুমিল্লা</option><option>সিলেট</option></select><button class="btn green" onclick="searchPosts()">🔍 খুঁজুন</button></div>
+</section>
+
+<section>
+<div class="cards">
+<div class="card" onclick="openPost('lost')"><div style="font-size:30px">🔴</div><h3>আমি কিছু হারিয়েছি</h3><p>হারানো জিনিসের তথ্য ও ছবি দিয়ে রিপোর্ট তৈরি করুন।</p></div>
+<div class="card" onclick="openPost('found')"><div style="font-size:30px">🟢</div><h3>আমি কিছু পেয়েছি</h3><p>পাওয়া জিনিসের তথ্য দিন, প্রকৃত মালিক যেন যোগাযোগ করতে পারেন।</p></div>
+</div>
+</section>
+
+<section>
+<h2>সাম্প্রতিক পোস্ট</h2>
+<div class="filters"><select id="typeFilter" onchange="searchPosts()"><option value="">সব ধরনের পোস্ট</option><option value="হারিয়েছে">হারিয়েছে</option><option value="পাওয়া গেছে">পাওয়া গেছে</option></select><select id="catFilter" onchange="searchPosts()"><option value="">সব ক্যাটাগরি</option><option>মোবাইল</option><option>ডকুমেন্ট</option><option>ব্যাগ</option><option>মানিব্যাগ</option><option>পোষা প্রাণী</option></select></div>
+<div id="posts" class="posts"></div>
+</section>
+</main>
+<footer>© 2026 হারানো-পাওয়া বাংলাদেশ · V2 prototype · Privacy First</footer>
+
+<div id="postModal" class="modal"><div class="modalbox"><div class="modalhead"><h2 id="postTitle">রিপোর্ট</h2><button class="btn light" onclick="closeAll()">×</button></div>
+<div class="notice">⚠️ NID নম্বর, পূর্ণ ব্যাংক/কার্ড নম্বর, পাসওয়ার্ড বা অন্য sensitive তথ্য লিখবেন না। আসল সাইটে secure database ও moderation থাকবে।</div>
+<form class="form" onsubmit="saveDemo(event)">
+<label>শিরোনাম</label><input id="title" required placeholder="যেমন: কালো Samsung ফোন">
+<div class="row"><div><label>ক্যাটাগরি</label><select id="category"><option>মোবাইল</option><option>ডকুমেন্ট</option><option>ব্যাগ</option><option>মানিব্যাগ</option><option>পোষা প্রাণী</option><option>অন্যান্য</option></select></div><div><label>জেলা</label><select id="postDistrict"><option>নোয়াখালী</option><option>ঢাকা</option><option>চট্টগ্রাম</option><option>কুমিল্লা</option><option>সিলেট</option></select></div></div>
+<label>উপজেলা / এলাকা</label><input id="area" required placeholder="যেমন: মাইজদী বাজার">
+<label>তারিখ</label><input id="date" type="date" required>
+<label>বিস্তারিত</label><textarea id="details" placeholder="রং, বিশেষ চিহ্ন, আনুমানিক সময় ইত্যাদি"></textarea>
+<button class="btn green" type="submit">রিপোর্ট জমা দিন</button>
+</form></div></div>
+
+<div id="authModal" class="modal"><div class="modalbox"><div class="modalhead"><h2>Login / Register</h2><button class="btn light" onclick="closeAll()">×</button></div>
+<form class="form" onsubmit="authDemo(event)"><label>নাম</label><input required placeholder="আপনার নাম"><label>ইমেইল</label><input type="email" required placeholder="you@example.com"><label>পাসওয়ার্ড</label><input type="password" required placeholder="••••••••"><button class="btn green">Continue</button></form>
+<p class="muted" style="margin-top:12px">এটি V2 demo। Production version-এ secure authentication, email verification ও password reset যোগ করতে হবে।</p>
+</div></div>
+
+<script>
+const demo=[
+{type:"হারিয়েছে",cat:"মোবাইল",title:"কালো Samsung ফোন",district:"নোয়াখালী",area:"মাইজদী",emoji:"📱"},
+{type:"পাওয়া গেছে",cat:"মানিব্যাগ",title:"বাদামি মানিব্যাগ",district:"ঢাকা",area:"ধানমন্ডি",emoji:"👛"},
+{type:"হারিয়েছে",cat:"ব্যাগ",title:"কালো ব্যাকপ্যাক",district:"চট্টগ্রাম",area:"আগ্রাবাদ",emoji:"🎒"},
+{type:"পাওয়া গেছে",cat:"ডকুমেন্ট",title:"একটি পরিচয়পত্র পাওয়া গেছে",district:"কুমিল্লা",area:"কান্দিরপাড়",emoji:"🪪"}
+];
+let postMode="lost";
+function render(list=demo){document.getElementById("posts").innerHTML=list.map(x=>`<article class="post"><div class="pic">${x.emoji}</div><div class="body"><div class="tag">${x.type} • ${x.cat}</div><h3>${x.title}</h3><p>📍 ${x.area}, ${x.district}<br>🔐 যোগাযোগের ব্যক্তিগত তথ্য public নয়</p><button class="btn light" onclick="alert('Production version-এ secure contact window খুলবে।')">Contact</button></div></article>`).join("")||"<p class='muted'>কোনো পোস্ট পাওয়া যায়নি।</p>"}
+function searchPosts(){let q=document.getElementById("q").value.toLowerCase(),d=document.getElementById("district").value,t=document.getElementById("typeFilter").value,c=document.getElementById("catFilter").value;render(demo.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!d||x.district===d)&&(!t||x.type===t)&&(!c||x.cat===c)))}
+function openPost(m){postMode=m;document.getElementById("postTitle").textContent=m==="lost"?"হারানো জিনিসের রিপোর্ট":"পাওয়া জিনিসের রিপোর্ট";document.getElementById("postModal").classList.add("show")}
+function openAuth(){document.getElementById("authModal").classList.add("show")}
+function closeAll(){document.querySelectorAll(".modal").forEach(x=>x.classList.remove("show"))}
+function saveDemo(e){e.preventDefault();demo.unshift({type:postMode==="lost"?"হারিয়েছে":"পাওয়া গেছে",cat:category.value,title:title.value,district:postDistrict.value,area:area.value,emoji:"📌"});closeAll();render();alert("ডেমো পোস্ট তৈরি হয়েছে। Production version-এ এটি database-এ সংরক্ষিত হবে।")}
+function authDemo(e){e.preventDefault();closeAll();alert("Demo login সফল। Production version-এ secure account তৈরি হবে.")}
+render();
+</script>
+</body></html>
